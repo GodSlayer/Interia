@@ -1,0 +1,42 @@
+package interia.module;
+
+import interia.Interia;
+import interia.event.other.EventKeyPress;
+import interia.lib.event.EventListener;
+import interia.lib.event.HandleEvent;
+import interia.lib.module.Module;
+import interia.lib.module.ModuleManager;
+import interia.module.modules.Flight;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class InteriaModuleManager extends ModuleManager implements EventListener
+{
+	private List<InteriaModule> theModules = new ArrayList<InteriaModule>();
+	
+	public InteriaModuleManager()
+	{
+		Interia.theInteria.eventHandler.registerListener(this);
+		this.theModules.add(new Flight());
+	}
+	
+	@HandleEvent
+    public void pressKey(EventKeyPress event) 
+	{
+        int keyCode = event.getKeyCode();
+        for (InteriaModule theModule : this.theModules) 
+        {
+            if (keyCode == theModule.getKeyBind()) 
+            {
+            	theModule.toggleModule();
+            }
+        }
+    }
+	
+	@Override
+	public Module[] getModules() 
+	{
+		return this.theModules.toArray(new InteriaModule[this.theModules.size()]);
+	}
+}
