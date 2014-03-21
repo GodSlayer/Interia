@@ -10,6 +10,8 @@ public class Interia
 {
 	public static final Interia theInteria = new Interia();
 	
+	public static final String MC_VERSION = "1.7.*";
+	
 	public static final String CLIENT_NAME = "Interia";
 	
 	public static final String CLIENT_VERSION = "a1";
