@@ -5,6 +5,7 @@ import interia.event.other.EventKeyPress;
 import interia.lib.event.EventListener;
 import interia.lib.event.HandleEvent;
 import interia.lib.module.ModuleManager;
+import interia.module.modules.ChestESP;
 import interia.module.modules.Flight;
 import interia.module.modules.FullBright;
 import interia.module.modules.Sprint;
@@ -19,6 +20,7 @@ public class InteriaModuleManager extends ModuleManager implements EventListener
 	public InteriaModuleManager()
 	{
 		Interia.theInteria.eventHandler.registerListener(this);
+		this.theModules.add(new ChestESP());
 		this.theModules.add(new Flight());
 		this.theModules.add(new FullBright());
 		this.theModules.add(new Sprint());

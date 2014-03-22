@@ -24,8 +24,8 @@ public class TileEntityChest extends TileEntity implements IInventory
     public float field_145989_m;
     public float field_145986_n;
     public int field_145987_o;
-    private int field_145983_q;
-    private int field_145982_r;
+    public int field_145983_q;
+    public int field_145982_r;
     private String field_145981_s;
     private static final String __OBFID = "CL_00000346";
 
