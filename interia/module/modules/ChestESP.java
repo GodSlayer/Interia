@@ -30,6 +30,7 @@ public class ChestESP extends InteriaModule implements EventListener
 	{
 		if(!this.isToggled())
 			return;
+		Interia.theInteria.getMinecraft().gameSettings.viewBobbing = false;
 		for (Iterator localIterator = Interia.theInteria.getMinecraft().theWorld.field_147482_g.iterator(); localIterator.hasNext();) 
 		{ 
 			Object o = localIterator.next();
