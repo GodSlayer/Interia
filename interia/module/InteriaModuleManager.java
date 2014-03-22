@@ -4,9 +4,10 @@ import interia.Interia;
 import interia.event.other.EventKeyPress;
 import interia.lib.event.EventListener;
 import interia.lib.event.HandleEvent;
-import interia.lib.module.Module;
 import interia.lib.module.ModuleManager;
 import interia.module.modules.Flight;
+import interia.module.modules.FullBright;
+import interia.module.modules.Sprint;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ public class InteriaModuleManager extends ModuleManager implements EventListener
 	{
 		Interia.theInteria.eventHandler.registerListener(this);
 		this.theModules.add(new Flight());
+		this.theModules.add(new FullBright());
+		this.theModules.add(new Sprint());
 	}
 	
 	@HandleEvent
@@ -35,7 +38,7 @@ public class InteriaModuleManager extends ModuleManager implements EventListener
     }
 	
 	@Override
-	public Module[] getModules() 
+	public InteriaModule[] getModules() 
 	{
 		return this.theModules.toArray(new InteriaModule[this.theModules.size()]);
 	}

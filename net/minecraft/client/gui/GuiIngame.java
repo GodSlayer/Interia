@@ -2,6 +2,7 @@ package net.minecraft.client.gui;
 
 import interia.Interia;
 import interia.event.render.EventRenderInGame;
+import interia.ui.UIRenderer;
 
 import java.awt.Color;
 import java.util.Collection;
@@ -92,7 +93,7 @@ public class GuiIngame extends Gui
         ScaledResolution var5 = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
         int var6 = var5.getScaledWidth();
         int var7 = var5.getScaledHeight();
-        FontRenderer var8 = this.mc.fontRenderer;
+        FontRenderer var8 = this.mc.fontRenderer;    
         this.mc.entityRenderer.setupOverlayRendering();
         GL11.glEnable(GL11.GL_BLEND);
 
@@ -313,6 +314,11 @@ public class GuiIngame extends Gui
         int var21;
         int var23;
         int var22;
+        
+        //TODO: Interia
+        GL11.glPushMatrix();
+        UIRenderer.renderUI();
+        GL11.glPopMatrix();
 
         if (this.mc.gameSettings.showDebugInfo)
         {
@@ -406,6 +412,9 @@ public class GuiIngame extends Gui
         this.persistantChatGUI.func_146230_a(this.updateCounter);
         this.mc.mcProfiler.endSection();
         GL11.glPopMatrix();
+        
+        
+        
         var43 = this.mc.theWorld.getScoreboard().func_96539_a(0);
 
         if (this.mc.gameSettings.keyBindPlayerList.getIsKeyPressed() && (!this.mc.isIntegratedServerRunning() || this.mc.thePlayer.sendQueue.playerInfoList.size() > 1 || var43 != null))

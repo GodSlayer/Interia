@@ -122,7 +122,7 @@ public class Gui
     /**
      * Renders the specified text to the screen.
      */
-    public void drawString(FontRenderer par1FontRenderer, String par2Str, int par3, int par4, int par5)
+    public static void drawString(FontRenderer par1FontRenderer, String par2Str, int par3, int par4, int par5)
     {
         par1FontRenderer.drawStringWithShadow(par2Str, par3, par4, par5);
     }

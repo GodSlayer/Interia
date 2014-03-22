@@ -2,6 +2,8 @@ package net.minecraft.client;
 
 import interia.Interia;
 import interia.event.other.EventKeyPress;
+import interia.event.other.EventShutdown;
+import interia.font.Fonts;
 import io.netty.util.concurrent.GenericFutureListener;
 
 import java.awt.Toolkit;
@@ -164,7 +166,7 @@ public class Minecraft implements IPlayerUsage
     private ServerData currentServerData;
 
     /** The RenderEngine instance used by Minecraft */
-    private TextureManager renderEngine;
+    public TextureManager renderEngine;
 
     /**
      * Set to 'this' in Minecraft constructor; used by some settings get methods
@@ -545,6 +547,9 @@ public class Minecraft implements IPlayerUsage
         this.loadScreen();
         this.fontRenderer = new FontRenderer(this.gameSettings, new ResourceLocation("textures/font/ascii.png"), this.renderEngine, false);
 
+        //TODO: Interia
+        Fonts.loadFonts();
+        
         if (this.gameSettings.language != null)
         {
             this.fontRenderer.setUnicodeFlag(this.mcLanguageManager.isCurrentLocaleUnicode() || this.gameSettings.forceUnicodeFont);
@@ -854,6 +859,9 @@ public class Minecraft implements IPlayerUsage
      */
     public void shutdownMinecraftApplet()
     {
+    	//TODO: Interia
+    	Interia.theInteria.eventHandler.fireEvent(new EventShutdown());
+    	
         try
         {
             logger.info("Stopping!");
