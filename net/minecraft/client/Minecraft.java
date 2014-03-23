@@ -7,6 +7,7 @@ import interia.font.Fonts;
 import io.netty.util.concurrent.GenericFutureListener;
 
 import java.awt.Toolkit;
+import interia.interia.gui.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -815,6 +816,8 @@ public class Minecraft implements IPlayerUsage
 
         if (p_147108_1_ instanceof GuiMainMenu)
         {
+            //TODO: Interia
+            p_147108_1_ = new InteriaMainMenu();
             this.gameSettings.showDebugInfo = false;
             this.ingameGUI.getChatGUI().func_146231_a();
         }
