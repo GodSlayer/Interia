@@ -480,4 +480,9 @@ public class WorldClient extends World
 
         super.setWorldTime(par1);
     }
+    
+    public Material getBlockMaterial(Block block)
+    {
+    	return block.getMaterial();
+    }
 }

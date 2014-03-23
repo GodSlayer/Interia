@@ -2,8 +2,9 @@ package interia;
 
 import interia.event.other.EventStartup;
 import interia.lib.event.EventHandler;
-import interia.lib.module.ModuleManager;
 import interia.module.InteriaModuleManager;
+import interia.ui.gui.InteriaGuiManager;
+import interia.ui.gui.theme.interia.InteriaTheme;
 import net.minecraft.client.Minecraft;
 
 public class Interia 
@@ -20,11 +21,17 @@ public class Interia
 	
 	public InteriaModuleManager moduleManager;
 	
+	public InteriaGuiManager guiManager;
+	
 	public void startInteria(Minecraft theMinecraft)
 	{
 		this.theMinecraft = theMinecraft;
 		this.eventHandler = new EventHandler();
 		this.moduleManager = new InteriaModuleManager();
+		this.guiManager = new InteriaGuiManager();
+		
+		this.guiManager.setTheme(new InteriaTheme());
+		this.guiManager.setup();
 		
 		this.theInteria.eventHandler.fireEvent(new EventStartup());
 	}
