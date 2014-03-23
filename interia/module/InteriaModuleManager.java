@@ -13,7 +13,7 @@ import interia.module.modules.MobESP;
 import interia.module.modules.Nuker;
 import interia.module.modules.PlayerESP;
 import interia.module.modules.Sprint;
-import interia.module.modules.Tracers;
+import interia.module.modules.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +34,7 @@ public class InteriaModuleManager extends ModuleManager implements EventListener
 		this.theModules.add(new PlayerESP());
 		this.theModules.add(new Sprint());
 		this.theModules.add(new Tracers());
+		this.theModules.add(new Criticals());
 	}
 	
 	@HandleEvent
